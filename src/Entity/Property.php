@@ -41,7 +41,8 @@ class Property
 
     /**
      * @ORM\Column(type="integer")
-     *  @Assert\Range(
+     *
+     * @Assert\Range(
      *      min = 10,
      *      max = 400
      * )
