@@ -2,16 +2,24 @@
 {% block title %}Tout nos biens!{% endblock %}
 {% block body %}
     <div class="jumbotron text-center">
-        <h1>Voir tous les biens de  Sami</h1>
-        <p>J’habite dans un appartement de 90 mètres carrés.situation dans l'espace
-            Dans mon appartement, il y a un séjour. Il est à gauche de l’entrée.<br>
-            C’est un petit séjour, très agréable. En face du séjour, à droite de l’entrée, il y a le salon. Au bout du couloir à gauche, il y a une chambre. C’est la chambre des enfants.<br>
-            Entre la chambre et le séjour, il y a la cuisine. En face de la cuisine, il y a la salle de bains. C’est une salle de bains avec douche et baignoire.
-            Les toilettes sont au bout du couloir. Au bout du couloir à droite, il y a une autre chambre.
-            Dans les chambres, il y a des placards. C’est très pratique.
-        </p>
+        <div class="container ">
+            {{form_start(form)}}
+            <div class="form-row">
+                <div class="col">
+                    {{form_row(form.minPrice)}}
+                </div>
+                <div class="col">
+                    {{form_row(form.minSurface)}}
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary">Recherche</button>
+                </div>
+            </div>
+            {{form_end(form)}}
+        </div>
     </div>
-    <div class="container">
+
+    <div class="container mt-4">
 
         <div class="row flex">
             {% for property in properties %}
