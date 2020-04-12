@@ -31,14 +31,14 @@ class PropertyType extends AbstractType
                  'choice_label'=>'name',
                  'multiple'=> true
             ])
-            ->add('imageFile',FileType::class,[
-                'required'=> false
+            ->add('pictureFiles',FileType::class,[
+                'required'=> false,
+                'multiple' => true
             ])
             ->add('city',null,['label'=>'Ville'])
             ->add('address',null, ['label'=>'adresse'])
             ->add('postal_code',null,['label'=>'Code postale'])
             ->add('sold',null,['label'=>'Vendu'])
-
         ;
     }
 

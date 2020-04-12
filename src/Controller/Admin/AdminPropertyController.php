@@ -67,7 +67,6 @@ class AdminPropertyController extends AbstractController
 
     }
 
-
     /**
      * @Route("/admi/property/{id}", name="admin.property.edit", methods="GET|POST")
      * @param Property $property

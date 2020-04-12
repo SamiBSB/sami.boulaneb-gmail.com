@@ -16,10 +16,10 @@
         {% endif %}
         <div class="row">
             <div class="col-md-8">
-                {% if property.filename %}
-                    <img src=" {{ vich_uploader_asset(property, 'imageFile') | imagine_filter('thumb') }}" alt="card-img-top" style="width: 100%;height: auto;">
+                {% if property.picture %}
+                    <img src=" {{ vich_uploader_asset(property.picture, 'imageFile') | imagine_filter('thumb') }}" alt="card-img-top" style="width: 100%;height: auto;">
                 {% else %}
-                    <img src=" {{ asset('images/properties/room.jpg')  }}" alt="card-img-top" style="width: 100%;height:auto;">
+                    <img src=" {{ asset('images/empty.jpg')  }}" alt="card-img-top" style="width: 100%;height:auto;">
                 {% endif %}
             </div>
         <div class="col-md-4">
@@ -29,22 +29,21 @@
                 {{ property.formattedPrice }} €
             </div>
             <a href="#" class="btn btn-primary" id="contactButton"{% if form.vars.submitted %} style="display: none;"{% endif %} >Contacter l'agence</a>
-            <div id="contactForm" class="mt-4"{% if not form.vars.submitted %}style="display: none;"{% endif %}>
-
-                {{form_start(form)}}
+            <div id="contactForm" class="mt-4"{% if not form.vars.submitted %} style="display: none;"{% endif %}>
+                {{ form_start(form) }}
                 <div class="row">
-                    <div class="col-md-4">{{ form_row(form.firstname) }}</div>
-                    <div class="col-md-4">{{ form_row(form.lastname) }}</div>
+                    <div class="col">{{ form_row(form.firstname) }}</div>
+                    <div class="col">{{ form_row(form.lastname) }}</div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4">{{ form_row(form.phone) }}</div>
-                    <div class="col-md-4">{{ form_row(form.email) }}</div>
+                    <div class="col">{{ form_row(form.phone) }}</div>
+                    <div class="col">{{ form_row(form.email) }}</div>
                 </div>
-                {{form_rest(form)}}
+                {{ form_rest(form) }}
                 <div class="form-group">
-                  <button class="btn btn-primary">Envoyer</button>
+                    <button class="btn btn-primary">Envoyer</button>
                 </div>
-                {{form_end(form)}}
+                {{ form_end(form) }}
             </div>
         </div>
     </div>
