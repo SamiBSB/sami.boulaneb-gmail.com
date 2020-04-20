@@ -48,7 +48,8 @@ if($entity instanceof Picture){
 }
 if($entity->getImageFile() instanceof UploaderHelper){
     $this->cacheManager->remove($this->uploaderHelper->asset($entity,'imageFile'));
-}}
+}
+    }
 
     public function preRemove(LifecycleEventArgs $args){
         $entity=$args->getEntity();

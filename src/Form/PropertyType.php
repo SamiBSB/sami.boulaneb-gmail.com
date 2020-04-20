@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -31,6 +32,7 @@ class PropertyType extends AbstractType
                  'choice_label'=>'name',
                  'multiple'=> true
             ])
+
             ->add('pictureFiles',FileType::class,[
                 'required'=> false,
                 'multiple' => true
@@ -38,6 +40,8 @@ class PropertyType extends AbstractType
             ->add('city',null,['label'=>'Ville'])
             ->add('address',null, ['label'=>'adresse'])
             ->add('postal_code',null,['label'=>'Code postale'])
+            ->add('lat', HiddenType::class)
+            ->add('lng',HiddenType::class)
             ->add('sold',null,['label'=>'Vendu'])
         ;
     }
